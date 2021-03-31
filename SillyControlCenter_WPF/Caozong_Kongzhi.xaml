@@ -1,0 +1,55 @@
+﻿<Window x:Class="SillyControlCenter_WPF.Caozong_Kongzhi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:SillyControlCenter_WPF"
+        mc:Ignorable="d"
+        Title="shezhi" Height="370" Width="650" AllowsTransparency="True" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="rec1" Fill="Black" Opacity="0.8" Grid.Row="0" Grid.RowSpan="10" Grid.Column="0" Grid.ColumnSpan="7"/>
+
+
+        <WrapPanel Height="30" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top"
+                   MouseMove="TitleBar_MouseMove" 
+                   MouseDown="TitleBar_MouseDown" Background="Transparent" DockPanel.Dock="Top">
+        </WrapPanel>
+        <Button x:Name="btn_clo" Margin="0,5,5,0" Background="Transparent" 
+                Width="30" Height="30" Click="btn_close_Click" Grid.Row="0" Grid.RowSpan="2"
+                HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image Source="images/guanbi.png" Height="17" VerticalAlignment="Center"/>
+        </Button>
+
+        <TextBlock Text="野火F103控制中心A" Foreground="White" FontSize="30" HorizontalAlignment="Center" Grid.Row="1"/>
+        <ScrollViewer Grid.Row="2" VerticalAlignment="Top">
+            <StackPanel Height="200" Margin="20,0,20,0">
+                <TextBlock Text="a） 修改控制中心名称" FontSize="22" Foreground="White" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBox x:Name="textbox2" Width="300"
+                                 Height="30" Background="Transparent" Foreground="White" pu:TextBoxHelper.FocusedBorderBrush="White" pu:TextBoxHelper.FocusedShadowColor="White"/>
+                    <Button Height="30" Click="Button_Click_2"
+                                Width="80" Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="White"
+                                BorderThickness="1"
+                                Foreground="White"
+                                Content="  修改"
+                                pu:IconHelper.FontFamily="{StaticResource PanuonIconFont}"
+                                pu:ButtonHelper.HoverBackground="Gray"
+                                            pu:ButtonHelper.HoverForeground="White" >
+                        <pu:ButtonHelper.Icon>
+                            <Image Source="/images/pencil.png" Height="17"/>
+                        </pu:ButtonHelper.Icon>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

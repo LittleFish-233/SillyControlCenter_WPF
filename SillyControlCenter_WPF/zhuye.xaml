@@ -1,0 +1,162 @@
+﻿<Page x:Class="SillyControlCenter_WPF.zhuye"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:local="clr-namespace:SillyControlCenter_WPF" xmlns:local1="clr-namespace:SillyControlCenter_WPF.kongjian"
+      mc:Ignorable="d" 
+      d:DesignHeight="560" d:DesignWidth="1000"
+      Title="zhuye">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+                
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="240"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="touxiang" Source="/images/tx.png" Height="200" Width="200" Stretch="UniformToFill">
+                <Image.Clip>
+                    <RectangleGeometry RadiusX="100" RadiusY="100" Rect="0,0,200,200"/>
+                </Image.Clip>
+            </Image>
+
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="textblock0" Text="LittleFish`s PC" Grid.Row="1" FontSize="35" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Left">
+                    <TextBlock x:Name="textblock1" Text="处理器：AMD Ryzen Threadripper 3960X 24-Core Processor "
+                             Foreground="White"
+                           Margin="0,0,0,0" 
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textblock2" Text="显卡：NVIDIA GeForce RTX 2060"
+                             Foreground="White"
+                           Margin="0,0,0,0"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textblock3" Text="内存：192GB DDR4 3200MHz"
+                             Foreground="White"
+                           Margin="0,0,0,0"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textblock4" Text="系统：Windows 10 专业版 19041 x64"
+                             Foreground="White"
+                           Margin="0,0,0,10"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textblock5" Text="CPU利用率：80%"
+                             Foreground="White"
+                           Margin="0,0,0,0" 
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock  x:Name="textblock6" Text="GPU占用率：15%"
+                             Foreground="White"
+                           Margin="0,0,0,0"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock  x:Name="textblock7" Text="内存使用率：96%"
+                             Foreground="White"
+                           Margin="0,0,0,0"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock  x:Name="textblock8" Text="磁盘活动时间比：10%"
+                             Foreground="White"
+                           Margin="0,0,0,10"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                    <TextBlock  x:Name="textblock9" Text="系统连续开机时间：369天12小时25分钟"
+                             Foreground="White"
+                           Margin="0,0,0,10"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+                </StackPanel>
+                <lvc:CartesianChart Grid.Row="1"  Grid.RowSpan="3" Margin="270,0,10,0" LegendLocation="Left" Foreground="White"
+                                    Series="{Binding LastHourSeries}" Hoverable="False" 
+                                     DataTooltip="{x:Null}">
+                    <lvc:CartesianChart.AxisX>
+                        <!--a small visual improvement, lets hide the first points (x = 0, x=1) to get better animations-->
+                        <lvc:Axis MinValue="1"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                </lvc:CartesianChart>
+            </Grid>
+
+            <TextBlock Text="欢迎使用 —— 沙雕智能控制中心" Foreground="White" Margin="25,-10,0,0"
+                       FontSize="50" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBlock Text="Welcome to use —— Silly control center      Powered By LittleFish" Foreground="White" 
+                       Margin="25,0,0,0"  FontSize="25" Grid.Row="2" Grid.ColumnSpan="2"/>
+        </Grid>
+        <ScrollViewer x:Name="scroll_" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="warp" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                <Border BorderThickness="1" CornerRadius="10"
+                BorderBrush="White"  Width="250" Height="190" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="25,0,0,0">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Height="40" Click="Button_Click"
+                                Width="180"
+                                Background="Transparent"
+                                BorderBrush="White"
+                                BorderThickness="1"
+                                Foreground="White"
+                                Content="  添加控制中心连接"
+                                pu:IconHelper.FontFamily="{StaticResource PanuonIconFont}"
+                                pu:ButtonHelper.CornerRadius="20"
+                                pu:ButtonHelper.HoverBackground="Gray"
+                                            pu:ButtonHelper.HoverForeground="White" >
+                            <pu:ButtonHelper.Icon>
+                                <Image Source="/images/chain.png" Height="15"/>
+                            </pu:ButtonHelper.Icon>
+                        </Button>
+                        <Button Height="40" Margin="0,30,0,0"
+                                    Width="180"
+                                    Background="Transparent"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Foreground="White"
+                                    Content="  启动内置控制中心"
+                                    pu:IconHelper.FontFamily="{StaticResource PanuonIconFont}"
+                                     pu:ButtonHelper.CornerRadius="20"
+                                    pu:ButtonHelper.HoverBackground="Gray"
+                                    pu:ButtonHelper.HoverForeground="White">
+                            <pu:ButtonHelper.Icon>
+                                <Image Source="/images/server.png" Height="15"/>
+                            </pu:ButtonHelper.Icon>
+                        </Button>
+                    </StackPanel>
+
+                </Border>
+
+            </WrapPanel>
+
+        </ScrollViewer>
+    </Grid>
+</Page>
